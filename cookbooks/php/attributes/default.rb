@@ -42,7 +42,7 @@ else
 end
 
 default['php']['url'] = 'http://us.php.net/distributions'
-default['php']['version'] = '5.3.10'
+default['php']['version'] = '5.2.17'
 default['php']['checksum'] = 'ee26ff003eaeaefb649735980d9ef1ffad3ea8c2836e6ad520de598da225eaab'
 default['php']['prefix_dir'] = '/usr/local'
 
