@@ -141,7 +141,7 @@ end
 unless platform?(%w{debian ubuntu})
 
   execute "assign-root-password" do
-    command "\"#{node['mysql']['mysqladmin_bin']}\" -u root password \"#{node['mysql']['server_root_password']}\""
+    command "\"#{node['mysql']['mysqladmin_bin']}\" -u root -h localhost password #{node['mysql']['server_root_password']}"
     action :run
     only_if "\"#{node['mysql']['mysql_bin']}\" -u root -e 'show databases;'"
   end
@@ -171,7 +171,7 @@ if platform? 'windows'
   end
 else
   execute "mysql-install-privileges" do
-    command "\"#{node['mysql']['mysql_bin']}\" -u root #{node['mysql']['server_root_password'].empty? ? '' : '-p' }\"#{node['mysql']['server_root_password']}\" < \"#{grants_path}\""
+    command "\"#{node['mysql']['mysql_bin']}\" -u root #{node['mysql']['server_root_password'].empty? ? '' : '-p' }#{node['mysql']['server_root_password']} < \"#{grants_path}\""
     action :nothing
     subscribes :run, resources("template[#{grants_path}]"), :immediately
   end
