@@ -1,8 +1,8 @@
 {
   "mysql": {
-    "server_root_password": "P@ssw0rd",
-    "server_repl_password": "P@ssw0rd",
-    "server_debian_password": "P@ssw0rd"
+    "server_root_password": "Passw0rd",
+    "server_repl_password": "Passw0rd",
+    "server_debian_password": "Passw0rd"
   },
   "run_list": [ 
     "recipe[build-essential]",
