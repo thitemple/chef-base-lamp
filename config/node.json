@@ -1,9 +1,8 @@
 {
   "mysql": {
-    "server_root_password": "Pa$$w0rd",
-    "server_repl_password": "Pa$$w0rd",
-    "server_debian_password": "Pa$$w0rd",
-    "package_name": "mysql55-server"
+    "server_root_password": "P@ssw0rd",
+    "server_repl_password": "P@ssw0rd",
+    "server_debian_password": "P@ssw0rd"
   },
   "run_list": [ 
     "recipe[build-essential]",
