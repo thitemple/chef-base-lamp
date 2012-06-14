@@ -4,12 +4,7 @@
     "server_repl_password": "Passw0rd",
     "server_debian_password": "Passw0rd"
   },
-  "yum": {
-	"ius_release": "1.0-10"
-  },
   "run_list": [ 
-	//"recipe[yum::epel]",
-	//"recipe[yum::ius]",
     "recipe[build-essential]",
     "recipe[openssl]",
     "recipe[selinux::permissive]",
