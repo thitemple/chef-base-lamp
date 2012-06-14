@@ -11,11 +11,6 @@ end
 
 package "phpmyadmin"
 
-template "/etc/phpmyadmin/apache.conf" do
-  source "apache.conf.erb"
-  mode "0660"
-end
-
 template "/etc/phpmyadmin/config-db.php" do
   source "config-db.php.erb"
   owner 'www-data'
