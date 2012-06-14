@@ -31,11 +31,16 @@ when "arch"
 
 when "amazon", "redhat", "centos", "scientific"
   
-  package "php package" do
-   package_name "php-5.2.17"
-   action :install
-   notifies :run, resources(:execute => "generate-module-list"), :immediately
-   not_if "which php"
+  # package "php package" do
+   # package_name "php-5.2.17"
+   # action :install
+   # notifies :run, resources(:execute => "generate-module-list"), :immediately
+   # not_if "which php"
+  # end
+  
+  yum_package "php" do
+    version "5.2.17"
+	action :install
   end
 
   # delete stock config

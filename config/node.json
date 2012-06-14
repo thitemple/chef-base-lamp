@@ -12,6 +12,12 @@
 	"recipe[yum::ius]",
     "recipe[build-essential]",
     "recipe[openssl]",
-    "recipe[selinux::permissive]"	
+    "recipe[selinux::permissive]",
+	"recipe[apache2]",
+    "recipe[apache2::mod_php52]",
+    "recipe[mysql::server55centos]",
+    "recipe[phpmyadmin]",
+	"recipe[java]",
+	"recipe[solr]"
   ]
 }
