@@ -11,11 +11,6 @@ end
 
 package "phpmyadmin"
 
-template "/etc/apache2/sites-enabled/zzz-phpmyadmin" do
-  source "vhost.erb"
-  mode "0660"
-end
-
 template "/etc/phpmyadmin/apache.conf" do
   source "apache.conf.erb"
   mode "0660"
@@ -26,4 +21,10 @@ template "/etc/phpmyadmin/config-db.php" do
   owner 'www-data'
   mode "0660"
   variables(:password => node[:mysql][:server_root_password], :username => 'root', :host => 'localhost')
+end
+
+service "httpd" do
+  service_name "httpd"
+  supports :status => true, :restart => true, :reload => true
+  action :nothing
 end
