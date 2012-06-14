@@ -8,8 +8,8 @@
 	"ius_release": "1.0-10"
   },
   "run_list": [ 
-	"recipe[yum::epel]",
-	"recipe[yum::ius]",
+	//"recipe[yum::epel]",
+	//"recipe[yum::ius]",
     "recipe[build-essential]",
     "recipe[openssl]",
     "recipe[selinux::permissive]",
