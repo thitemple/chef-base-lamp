@@ -5,7 +5,7 @@ execute "Installing Remi repository" do
     command "sudo rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-7.noarch.rpm; sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm"
   end
   action :run
-  not_if "rpm -V epel-release-6-7.noarch" or "rpm -V epel-release-5-4.noarch"
+  not_if {"rpm -V epel-release-6-7.noarch" or "rpm -V epel-release-5-4.noarch"}
 end
 
 execute "Installing MySQL 5.5" do
