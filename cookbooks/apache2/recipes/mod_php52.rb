@@ -31,22 +31,12 @@ when "arch"
 
 when "amazon", "redhat", "centos", "scientific"
   
-  execute "installing php 5.2" do
-    command "sudo rpm -i http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/i386/php52-5.2.17-6.ius.el5.i386.rpm"
-	action :run
-	not_if "which php"
+  package "php package" do
+   package_name "php-5.2.17"
+   action :install
+   notifies :run, resources(:execute => "generate-module-list"), :immediately
+   not_if "which php"
   end
-  
-  #package "php package" do
-  #  if node['platform_version'].to_f < 6.0
-  #    package_name "php53"
-  #  else
-  #    package_name "php"
-  #  end
-  #  action :install
-  #  notifies :run, resources(:execute => "generate-module-list"), :immediately
-  #  not_if "which php"
-  #end
 
   # delete stock config
   file "#{node['apache']['dir']}/conf.d/php.conf" do
