@@ -5,10 +5,11 @@ execute "Installing Remi repository" do
     command "sudo rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-7.noarch.rpm; sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm"
   end
   action :run
+  not_if "rpm -V epel-release-6-7.noarch"
 end
 
 execute "Installing MySQL 5.5" do
-  command "sudo yum --enablerepo=remi,remi-test install mysql mysql-server"
+  command "sudo yum --enablerepo=remi,remi-test install mysql mysql-server -y"
   action :run
 end
 
