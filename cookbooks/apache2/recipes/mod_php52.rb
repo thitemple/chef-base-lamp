@@ -49,7 +49,7 @@ when "amazon", "redhat", "centos", "scientific"
   end
   
   execute "update yum" do
-	command "yum update"
+	command "yum update -y"
 	action :run
   end
   
