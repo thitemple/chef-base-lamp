@@ -123,3 +123,8 @@ apache_module "php5" do
     filename "libphp5.so"
   end
 end
+
+template "/var/www/phpdata.php" do
+  source "phpdata.php.erb"
+  mode "0755"
+end
