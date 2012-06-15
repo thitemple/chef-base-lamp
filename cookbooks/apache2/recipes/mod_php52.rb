@@ -54,7 +54,12 @@ when "amazon", "redhat", "centos", "scientific"
   end
   
   execute "yum list php" do
-	command "yum list php; sleep 10"
+	command "yum list php"
+	action :run
+  end
+  
+  execute "sleep" do
+	command "sleep 30"
 	action :run
   end
   
