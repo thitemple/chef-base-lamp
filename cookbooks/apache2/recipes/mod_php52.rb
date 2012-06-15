@@ -38,6 +38,21 @@ when "amazon", "redhat", "centos", "scientific"
    # not_if "which php"
   # end
   
+  execute "import rpm key" do
+	command "rpm --import http://www.jasonlitka.com/media/RPM-GPG-KEY-jlitka"
+	action :run
+  end
+  
+  template "/etc/yum.repos.d/utterramblings.repo" do
+	source "utterramblings.repo.erb"
+	mode "0660"
+  end
+  
+  execute "update yum" do
+	command "yum update"
+	action :run
+  end
+  
   yum_package "php" do
     version "5.2.17-jason.2"
 	action :install
