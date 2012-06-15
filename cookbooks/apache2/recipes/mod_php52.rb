@@ -53,6 +53,11 @@ when "amazon", "redhat", "centos", "scientific"
 	action :run
   end
   
+  execute "yum list php" do
+	command "yum list php"
+	action :run
+  end
+  
   yum_package "php" do
     version "5.2.17-jason.2"
 	action :install
