@@ -45,7 +45,7 @@ when "amazon", "redhat", "centos", "scientific"
   
   template "/etc/yum.repos.d/utterramblings.repo" do
 	source "utterramblings.repo.erb"
-	mode "0660"
+	mode "0644"
   end
   
   execute "update yum" do
