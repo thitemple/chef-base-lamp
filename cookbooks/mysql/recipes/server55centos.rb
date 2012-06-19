@@ -9,7 +9,7 @@ execute "Installing Remi repository" do
 end
 
 execute "Installing MySQL 5.5" do
-  command "sudo yum --enablerepo=remi,remi-test install mysql mysql-server php-mysql -y"
+  command "sudo yum --enablerepo=remi,remi-test install mysql mysql-server -y"
   action :run
 end
 
