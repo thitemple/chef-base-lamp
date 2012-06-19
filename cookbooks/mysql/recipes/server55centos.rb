@@ -13,6 +13,18 @@ execute "Installing MySQL 5.5" do
   action :run
 end
 
+execute "Installing php-mysql" do
+  command "sudo yum --enablerepo=remi,remi-test install php-mysql -y"
+  action :run
+  not_if "rpm -V php53-common"
+end
+
+execute "Installing php-mysql" do
+  command "sudo yum install php-mysql -y"
+  action :run
+  only_if "rpm -V php53-common"
+end
+
 directory node['mysql']['confd_dir'] do
   owner "mysql" unless platform? 'windows'
   group "mysql" unless platform? 'windows'
