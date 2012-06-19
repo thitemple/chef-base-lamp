@@ -25,7 +25,9 @@ if platform?(%w{centos})
 
 end
 
-package "phpmyadmin"
+yum_package "phpmyadmin" do
+	source "remi"
+end
 
 service "httpd" do
   service_name "httpd"
