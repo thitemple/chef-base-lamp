@@ -11,11 +11,12 @@ end
 execute "Installing Remi repository" do
   if node['platform_version'].to_f < 6.0
     command "sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-5.rpm"
+	not_if "rpm -V remi-release-5"
   else
     command "sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm"
+	not_if "rpm -V remi-release-6"
   end
   action :run
-  not_if {"rpm -V remi-release-6.noarch" or "rpm -V remi-release-5.noarch"}
 end
 
 execute "Installing MySQL 5.5" do

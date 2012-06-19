@@ -24,7 +24,7 @@ if platform?(%w{centos})
   end
   
   execute "install phpMyAdmin" do
-	command "sudo yum --enablerepo=remi install phpmyadmin"
+	command "sudo yum --enablerepo=remi install phpmyadmin -y"
 	action :run
   end
 else
