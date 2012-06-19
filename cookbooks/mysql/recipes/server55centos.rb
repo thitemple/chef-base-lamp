@@ -1,8 +1,8 @@
-execute "Installing Remi repository dependency" do
+execute "Installing Remi repository dependencies" do
   if node['platform_version'].to_f < 6.0
-    command "sudo rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm; sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-5.rpm"
+    command "sudo rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm"
   else
-    command "sudo rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-7.noarch.rpm; sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm"
+    command "sudo rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-7.noarch.rpm"
   end
   action :run
   not_if {"rpm -V epel-release-6-7.noarch" or "rpm -V epel-release-5-4.noarch"}
