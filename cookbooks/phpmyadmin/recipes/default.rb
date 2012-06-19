@@ -12,7 +12,7 @@ end
 if platform?(%w{centos})
 
   execute "install phpMyAdmin dependencies for php 5.3" do
-    command "yum install php53-mcrypt php53-mbstring -y"
+    command "sudo yum install php53-mcrypt php53-mbstring -y"
     action :run
     only_if "rpm -V php53-common"
   end
