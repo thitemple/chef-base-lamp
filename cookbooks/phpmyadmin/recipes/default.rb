@@ -22,11 +22,15 @@ if platform?(%w{centos})
     action :run
     not_if "rpm -V php53-common"
   end
+  
+  execute "install phpMyAdmin" do
+	command "sudo yum --enablerepo=remi install phpmyadmin"
+	action :run
+  end
+else
 
-end
-
-yum_package "phpmyadmin" do
-	source "remi"
+	package "phpmyadmin"
+	
 end
 
 service "httpd" do
