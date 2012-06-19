@@ -14,7 +14,7 @@ execute "Installing MySQL 5.5" do
 end
 
 execute "Installing php-mysql" do
-  command "sudo yum --enablerepo=remi,remi-test install php-mysql -y"
+  command "sudo yum --enablerepo=remi,remi-test install php-mysql php-mcrypt php-mbstring -y"
   action :run
   not_if "rpm -V php53-common"
 end
