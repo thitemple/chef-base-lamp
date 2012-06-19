@@ -1,4 +1,4 @@
-execute "Installing Remi repository" do
+execute "Installing Remi repository dependency" do
   if node['platform_version'].to_f < 6.0
     command "sudo rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm; sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-5.rpm"
   else
@@ -6,6 +6,16 @@ execute "Installing Remi repository" do
   end
   action :run
   not_if {"rpm -V epel-release-6-7.noarch" or "rpm -V epel-release-5-4.noarch"}
+end
+  
+execute "Installing Remi repository" do
+  if node['platform_version'].to_f < 6.0
+    command "sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-5.rpm"
+  else
+    command "sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm"
+  end
+  action :run
+  not_if {"rpm -V remi-release-6.noarch" or "rpm -V remi-release-5.noarch"}
 end
 
 execute "Installing MySQL 5.5" do

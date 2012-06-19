@@ -29,8 +29,8 @@ if platform?(%w{centos})
   end
 else
 
-	package "phpmyadmin"
-	
+  package "phpmyadmin"
+  
 end
 
 service "httpd" do
