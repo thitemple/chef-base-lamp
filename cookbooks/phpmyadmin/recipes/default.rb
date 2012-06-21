@@ -34,9 +34,5 @@ else
 end
 
 service "httpd" do
-  service_name "httpd"
-  supports :status => true, :restart => true, :reload => true
-  action :nothing
+  action :restart
 end
-
-# sudo cp /var/www/phpmyadmin/config.sample.inc.php /var/www/phpmyadmin/config.inc.php
