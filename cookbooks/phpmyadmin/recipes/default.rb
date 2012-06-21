@@ -39,8 +39,6 @@ else
   
 end
 
-template 
-
 service "httpd" do
   action :restart
 end
