@@ -28,10 +28,10 @@ if platform?(%w{centos})
 	action :run
   end
   
-  template "/etc/httpd/conf.d/phpMyAdmin.conf" do
-	source "phpmyadmin.conf.httpd.erb"
-	mode  "0660"
-  end
+  # template "/etc/httpd/conf.d/phpMyAdmin.conf" do
+	# source "phpmyadmin.conf.httpd.erb"
+	# mode  "0660"
+  # end
   
 else
 
