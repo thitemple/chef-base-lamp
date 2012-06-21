@@ -17,11 +17,11 @@ if platform?(%w{centos})
     only_if "rpm -V php53-common"
   end
 
-  execute "install phpMyAdmin dependencies for php 5.2" do
-    command "sudo yum --enablerepo=remi,remi-test install php-mysqli php-mcrypt php-mbstring -y"
-    action :run
-    not_if "rpm -V php53-common"
-  end
+  # execute "install phpMyAdmin dependencies for php 5.2" do
+    # command "sudo yum --enablerepo=remi,remi-test install php-mysqli php-mcrypt php-mbstring -y"
+    # action :run
+    # not_if "rpm -V php53-common"
+  # end
   
   execute "install phpMyAdmin" do
 	command "sudo yum --enablerepo=remi install phpmyadmin -y"
