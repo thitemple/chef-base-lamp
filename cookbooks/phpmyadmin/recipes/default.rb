@@ -26,6 +26,7 @@ if platform?(%w{centos})
   execute "install phpMyAdmin" do
 	command "sudo yum --enablerepo=remi install phpmyadmin -y"
 	action :run
+	not_if "rpm -V phpMyAdmin"
   end
   
   # template "/etc/httpd/conf.d/phpMyAdmin.conf" do
