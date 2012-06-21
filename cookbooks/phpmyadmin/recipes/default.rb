@@ -27,11 +27,19 @@ if platform?(%w{centos})
 	command "sudo yum --enablerepo=remi install phpmyadmin -y"
 	action :run
   end
+  
+  template "/etc/httpd/conf.d/phpMyAdmin.conf" do
+	source "phpmyadmin.conf.http.erb"
+	mode  "0660"
+  end
+  
 else
 
   package "phpmyadmin"
   
 end
+
+template 
 
 service "httpd" do
   action :restart

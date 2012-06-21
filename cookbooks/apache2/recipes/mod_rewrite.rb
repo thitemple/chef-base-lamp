@@ -18,3 +18,8 @@
 #
 
 apache_module "rewrite"
+
+template "/etc/httpd/sites-enabled/000-default" do
+	source "default-site.rewrite.erb"
+	mode  "0660"
+end
