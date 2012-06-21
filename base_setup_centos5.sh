@@ -7,7 +7,7 @@ sudo yum install ruby ruby-devel ruby-ri ruby-rdoc ruby-shadow gcc gcc-c++ autom
 
 #
 # Install RubyGems
-#
+#k
 curl -O http://production.cf.rubygems.org/rubygems/rubygems-1.8.10.tgz
 tar zxf rubygems-1.8.10.tgz
 sudo ruby rubygems-1.8.10/setup.rb --no-format-executable
