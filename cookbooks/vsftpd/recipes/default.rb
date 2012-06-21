@@ -58,7 +58,5 @@ script "grant ftp access to user chefadmin" do
   usermod -G ftpusers chefadmin
   chgrp -R ftpusers /var/www
   chmod -R g+w /var/www
-  find /var/www -type d -exec chmod 2775 {} \;
-  find /var/www -type f -exec chmod ug+rw {} \;
   EOH
 end
