@@ -69,6 +69,7 @@ when "amazon", "redhat", "centos", "scientific"
   end
   
   yum_package "php-common" do
+	version "5.2.17-jason.2"
 	action :install
   end
 
