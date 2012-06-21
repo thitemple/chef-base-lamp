@@ -29,7 +29,7 @@ if platform?(%w{centos})
   end
   
   template "/etc/httpd/conf.d/phpMyAdmin.conf" do
-	source "phpmyadmin.conf.http.erb"
+	source "phpmyadmin.conf.httpd.erb"
 	mode  "0660"
   end
   
