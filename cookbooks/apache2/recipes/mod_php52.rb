@@ -73,11 +73,6 @@ when "amazon", "redhat", "centos", "scientific"
 	action :install
   end
   
-  yum_package "php-mysqli" do
-	version "5.2.17-jason.2"
-	action :install
-  end
-  
   yum_package "php-mcrypt" do
 	version "5.2.17-jason.2"
 	action :install
