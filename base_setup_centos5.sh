@@ -35,7 +35,9 @@ sudo yum install yum-protectbase -y
 #
 # Install GIT
 #
-sudo yum install git -y
+yum repolist
+yum install git --disablerepo=epel
+
 
 # sudo git clone git://github.com/vintem/chef-base-lamp.git .
 # sudo chef-solo -c config/solo.rb -j config/node.json
